@@ -1,14 +1,20 @@
-export const sidenav = [
+export default [
     {
         title:'Home',
         value:'Home',
         path:'/',
-        icon:'mdi-view-dashboard'
+        icon:'mdi-home'
     },
     {
         title:'About',
         value:'About',
         path:'/about',
-        icon:'mdi-forum'
+        icon:'mdi-account'
     },
+    {
+        title:'Setting',
+        value:'Setting',
+        path:'/',
+        icon:'mdi-cog'
+    }
 ]

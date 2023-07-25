@@ -33,23 +33,24 @@
 </template>
 
 <script>
+import sidenav from '../../shared/data/sidenav/sidenav.js'
 
 export default {
   data() {
-    const sidenav = [
-      {
-        title: 'Home',
-        path: '/',
-        value: 'home',
-        icon: 'mdi-view-dashboard'
-      },
-      {
-        title: 'About',
-        path: '/about',
-        value: 'about',
-        icon: 'mdi-forum'
-      }
-    ]
+    // const sidenav = [
+    //   {
+    //     title: 'Home',
+    //     path: '/',
+    //     value: 'home',
+    //     icon: 'mdi-view-dashboard'
+    //   },
+    //   {
+    //     title: 'About',
+    //     path: '/about',
+    //     value: 'about',
+    //     icon: 'mdi-forum'
+    //   }
+    // ]
 
 
     return {
