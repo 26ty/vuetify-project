@@ -3,7 +3,7 @@
     <v-app-bar-title>
       <!-- <v-icon icon="mdi-circle-slice-4" @click.stop="drawer = !drawer"/> -->
       <v-app-bar-nav-icon color="primary" @click.stop="drawer = !drawer">
-        
+
       </v-app-bar-nav-icon>
       Base Preset
     </v-app-bar-title>
@@ -15,9 +15,12 @@
 
         <v-divider></v-divider>
 
-        <v-list density="compact" nav>
-          <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home"></v-list-item>
-          <v-list-item prepend-icon="mdi-forum" title="About" value="about"></v-list-item>
+        <v-list density="compact" nav >
+          <!-- <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home" router :to="'/'"></v-list-item>
+          <v-list-item prepend-icon="mdi-forum" title="About" value="about" router :to="'/about'"></v-list-item> -->
+
+          <v-list-item v-for="item in sidenav" :prepend-icon="item.icon" :title="item.title" :value="item.value" router :to="item.path">
+          </v-list-item>
         </v-list>
       </v-navigation-drawer>
       <v-main style="height: 100vh">
@@ -30,10 +33,28 @@
 </template>
 
 <script>
+
 export default {
   data() {
+    const sidenav = [
+      {
+        title: 'Home',
+        path: '/',
+        value: 'home',
+        icon: 'mdi-view-dashboard'
+      },
+      {
+        title: 'About',
+        path: '/about',
+        value: 'about',
+        icon: 'mdi-forum'
+      }
+    ]
+
+
     return {
       drawer: null,
+      sidenav
     }
   },
 }
