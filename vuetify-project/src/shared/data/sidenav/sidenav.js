@@ -1,20 +1,35 @@
 export default [
     {
-        title:'Home',
-        value:'Home',
-        path:'/',
-        icon:'mdi-home'
+        title: 'Home',
+        value: 'Home',
+        path: '/',
+        icon: 'mdi-home'
     },
     {
-        title:'About',
-        value:'About',
-        path:'/about',
-        icon:'mdi-account'
+        title: 'About',
+        value: 'About',
+        path: '/about',
+        icon: 'mdi-account'
     },
     {
-        title:'Setting',
-        value:'Setting',
-        path:'/',
-        icon:'mdi-cog'
+        title: 'Table',
+        value: 'Table',
+        path: '/table',
+        icon: 'mdi-table'
+    },
+    {
+        title: 'Form',
+        value: 'Form',
+        path: '/form',
+        icon: 'mdi-form-select'
     }
 ]
+
+
+// ,
+// children: {
+//     title: 'Test',
+//         value: 'Test',
+//             path: '/',
+//                 icon: 'mdi-cog',
+//         }

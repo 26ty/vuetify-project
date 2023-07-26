@@ -8,6 +8,7 @@
       Base Preset
     </v-app-bar-title>
   </v-app-bar>
+
   <v-card class="mt-3">
     <v-layout>
       <v-navigation-drawer v-model="drawer" temporary>
@@ -15,17 +16,30 @@
 
         <v-divider></v-divider>
 
-        <v-list density="compact" nav >
+        <v-list density="compact" nav>
           <!-- <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home" router :to="'/'"></v-list-item>
           <v-list-item prepend-icon="mdi-forum" title="About" value="about" router :to="'/about'"></v-list-item> -->
 
-          <v-list-item v-for="item in sidenav" :prepend-icon="item.icon" :title="item.title" :value="item.value" router :to="item.path">
+          <v-list-item v-for="item in sidenav" :prepend-icon="item.icon" :title="item.title" :value="item.value" router
+            :to="item.path">
           </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
-      <v-main style="height: 100vh">
-        <div class="d-flex justify-center align-center h-100">
 
+          <!-- <v-list-group>
+              <v-list-item v-for="item in sidenav" :prepend-icon="item.icon" :title="item.title" :value="item.value"
+                router :to="item.path">
+              </v-list-item>
+              <v-list-item v-for="item in sidenav.children" :prepend-icon="item.icon" :title="item.title" :value="item.value"
+                router :to="item.path">
+
+              </v-list-item>
+          </v-list-group> -->
+
+        </v-list>
+
+      </v-navigation-drawer>
+      <v-main style="height: 100vh" >
+        <div class="d-flex justify-center align-center h-100">
+          <router-view />
         </div>
       </v-main>
     </v-layout>
@@ -51,7 +65,6 @@ export default {
     //     icon: 'mdi-forum'
     //   }
     // ]
-
 
     return {
       drawer: null,

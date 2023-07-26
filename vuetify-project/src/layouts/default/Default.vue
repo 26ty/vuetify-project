@@ -2,7 +2,7 @@
   <v-app>
     <default-bar />
 
-    <default-view />
+    <!-- <default-view /> -->
   </v-app>
 </template>
 

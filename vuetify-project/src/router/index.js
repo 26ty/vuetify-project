@@ -1,6 +1,8 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
 import About from '../views/About.vue'
+import Table from '../components/Table.vue'
+import Form from '../components/Form.vue'
 const routes = [
   {
     path: '/',
@@ -18,6 +20,16 @@ const routes = [
         path:'/about',
         name: 'about',
         component: About
+      },
+      {
+        path:'/table',
+        name: 'table',
+        component: Table
+      },
+      {
+        path:'/form',
+        name: 'form',
+        component: Form
       }
     ],
   },
