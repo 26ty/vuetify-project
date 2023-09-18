@@ -32,8 +32,7 @@
       <!-- <v-checkbox v-model="completed" :rules="[v => !!v || 'You must agree to continue!']" label="Completed?"
         required></v-checkbox> -->
 
-      <v-checkbox v-model="completed" label="Completed?"
-        required></v-checkbox>
+      <v-checkbox v-model="completed" label="Completed?" required></v-checkbox>
 
       <div class="d-flex flex-column">
         <v-btn color="success" class="mt-4" block @click="submitForm">
@@ -62,7 +61,12 @@
 
 <script>
 import apiService from '../shared/apiService/apiService.js'
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+
+
 export default {
+  name: 'FormContainer',
   data: () => ({
     userId: null,
     userItem: [
@@ -91,6 +95,9 @@ export default {
 
     //submit func
     submitForm() {
+      // CommonJS
+      // const Swal = require('sweetalert2')
+
       const requestBody = {
         title: this.title,
         userId: this.userId,
@@ -105,6 +112,24 @@ export default {
           if (response.data.id == 201) {
             this.reset()
             this.completed = ''
+
+            //新增成功通知
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+
+            Toast.fire({
+              icon: 'success',
+              title: 'Insert successfully'
+            })
           }
         })
         .catch(error => {

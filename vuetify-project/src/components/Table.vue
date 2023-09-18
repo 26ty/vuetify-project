@@ -36,6 +36,7 @@ import desserts from '../shared/data/table/table.js'
 import apiService from '../shared/apiService/apiService.js'
 
 export default {
+  name: 'DataTable',
   data() {
     // const keys = Object.keys(this.desserts[0])
     return {
