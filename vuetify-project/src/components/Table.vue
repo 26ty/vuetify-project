@@ -45,8 +45,7 @@ export default {
       todoData:[]
     }
   },
-  // 生命周期钩子会在组件生命周期的各个不同阶段被调用
-  // 例如这个函数就会在组件挂载完成后被调用
+  //生命週期hook會在component生命週期的各個不同階段被調用
   mounted() {
     console.log(this.desserts[0].name)
 
@@ -54,9 +53,12 @@ export default {
 
     console.log(keys)
 
+    // 取得user todoList
     this.fetchTodoData();
   },
   methods : {
+
+    // 取得user todoList
     fetchTodoData(){
       apiService.get('/todos')
         .then(response => {
@@ -67,6 +69,8 @@ export default {
           console.log(error)
         })
     }
+
+
   }
 }
 

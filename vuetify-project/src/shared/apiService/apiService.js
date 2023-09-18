@@ -9,11 +9,20 @@ const apiClient = axios.create({
 });
 
 export default {
+  // get方法
   get(endpoint) {
     return apiClient.get(endpoint);
   },
+  // post方法
   post(endpoint, data) {
     return apiClient.post(endpoint, data);
   },
-  // 可以根據需求添加其他 HTTP 方法（例如 put、delete 等）
+  // put方法
+  put(endpoint,data) {
+    return apiClient.post(endpoint, data);
+  },
+  // delete方法
+  delete(endpoint) {
+    return apiClient.delete(endpoint);
+  }
 };

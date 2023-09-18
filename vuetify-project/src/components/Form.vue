@@ -5,21 +5,17 @@
         <v-row no-gutters>
           <v-col>
             <v-sheet class="pa-2">
-              <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
-            </v-sheet>
-          </v-col>
-          <v-col>
-            <v-sheet class="pa-2">
-              <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" label="Item"
+              <v-select v-model="userId" :items="userItem" :rules="[v => !!v || 'Item is required']" label="Item"
                 required></v-select>
             </v-sheet>
           </v-col>
-
-          <!-- <v-responsive width="100%"></v-responsive> -->
-
-
+          <v-col>
+            <v-sheet class="pa-2">
+              <v-text-field v-model="title" :counter="10" label="Name" required></v-text-field>
+            </v-sheet>
+          </v-col>
         </v-row>
-        <v-row no-gutters>
+        <!-- <v-row no-gutters>
           <v-col>
             <v-sheet class="pa-2">
               <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
@@ -28,28 +24,26 @@
           <v-col>
             <v-sheet class="pa-2">
               <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
-            </v-sheet>
-          </v-col>
-        </v-row>
-        <!-- <v-row class="mb-6" no-gutters>
-          <v-col>
-            <v-sheet class="pa-2 ma-2">
-              <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
-            </v-sheet>
-          </v-col>
-          <v-col>
-            <v-sheet class="pa-2 ma-2">
-              <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" label="Item"
-              required></v-select>
             </v-sheet>
           </v-col>
         </v-row> -->
       </v-form>
-      <v-checkbox v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" label="Do you agree?"
+
+      <!-- <v-checkbox v-model="completed" :rules="[v => !!v || 'You must agree to continue!']" label="Completed?"
+        required></v-checkbox> -->
+
+      <v-checkbox v-model="completed" label="Completed?"
         required></v-checkbox>
 
       <div class="d-flex flex-column">
-        <v-btn color="success" class="mt-4" block @click="validate">
+        <v-btn color="success" class="mt-4" block @click="submitForm">
+          Submit
+        </v-btn>
+
+        <v-btn color="error" class="mt-4" block @click="reset">
+          Reset Form
+        </v-btn>
+        <!-- <v-btn color="success" class="mt-4" block @click="validate">
           Validate
         </v-btn>
 
@@ -59,58 +53,29 @@
 
         <v-btn color="warning" class="mt-4" block @click="resetValidation">
           Reset Validation
-        </v-btn>
+        </v-btn> -->
       </div>
     </v-container>
-    <!-- <v-form ref="form">
 
-
-      <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" label="Item"
-        required></v-select>
-
-      <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
-
-      <v-select v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" label="Item"
-        required></v-select>
-
-      <v-checkbox v-model="checkbox" :rules="[v => !!v || 'You must agree to continue!']" label="Do you agree?"
-        required></v-checkbox>
-
-      <div class="d-flex flex-column">
-        <v-btn color="success" class="mt-4" block @click="validate">
-          Validate
-        </v-btn>
-
-        <v-btn color="error" class="mt-4" block @click="reset">
-          Reset Form
-        </v-btn>
-
-        <v-btn color="warning" class="mt-4" block @click="resetValidation">
-          Reset Validation
-        </v-btn>
-      </div>
-    </v-form> -->
   </v-sheet>
 </template>
 
 <script>
+import apiService from '../shared/apiService/apiService.js'
 export default {
   data: () => ({
-    name: '',
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+    userId: null,
+    userItem: [
+      '1',
+      '2',
+      '3'
     ],
-    select: null,
-    items: [
-      'Item 1',
-      'Item 2',
-      'Item 3',
-      'Item 4',
-    ],
-    checkbox: false,
+    title: '',
+    completed: false
   }),
+  mounted() {
 
+  },
   methods: {
     async validate() {
       const { valid } = await this.$refs.form.validate()
@@ -123,6 +88,29 @@ export default {
     resetValidation() {
       this.$refs.form.resetValidation()
     },
+
+    //submit func
+    submitForm() {
+      const requestBody = {
+        title: this.title,
+        userId: this.userId,
+        completed: this.completed
+      };
+
+      //使用apiService的post方法發送POST方法
+      apiService.post('/users/1/todos', requestBody)
+        .then(response => {
+          console.log(response.data);
+
+          if (response.data.id == 201) {
+            this.reset()
+            this.completed = ''
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
   },
 }
 </script>
