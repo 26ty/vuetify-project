@@ -8,9 +8,16 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
-html,body {
+html,
+body {
     height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+.v-list-item--active {
+    background-color: #fcffff;
+    /* 選中項的背景顏色 */
+    color: #000000;
+    /* 選中項的文字顏色 */
+}

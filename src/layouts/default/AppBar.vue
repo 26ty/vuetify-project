@@ -19,22 +19,11 @@
         <v-divider></v-divider>
 
         <v-list density="compact" nav>
-          <!-- <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home" router :to="'/'"></v-list-item>
-          <v-list-item prepend-icon="mdi-forum" title="About" value="about" router :to="'/about'"></v-list-item> -->
 
           <v-list-item v-for="item in sidenav" :prepend-icon="item.icon" :title="item.title" :value="item.value" router
-            :to="item.path">
+            :to="item.path" :key="item.value" :exact="item.path === '/'"
+            :class="{ 'v-list-item--active': $route.path === item.path }">
           </v-list-item>
-
-          <!-- <v-list-group>
-              <v-list-item v-for="item in sidenav" :prepend-icon="item.icon" :title="item.title" :value="item.value"
-                router :to="item.path">
-              </v-list-item>
-              <v-list-item v-for="item in sidenav.children" :prepend-icon="item.icon" :title="item.title" :value="item.value"
-                router :to="item.path">
-
-              </v-list-item>
-          </v-list-group> -->
 
         </v-list>
 
