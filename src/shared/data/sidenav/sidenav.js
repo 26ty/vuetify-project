@@ -27,7 +27,7 @@ export default [
     title: 'Assistant',
     value: 'Assistant',
     path: '/assistant',
-    icon: 'mdi-form-select'
+    icon: 'mdi-comment-alert-outline'
   }
 ]
 
