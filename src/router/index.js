@@ -3,6 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import About from '../views/About.vue'
 import Table from '../components/Table.vue'
 import Form from '../components/Form.vue'
+import Assistant from '../views/Assistant/Assistant.vue'
+
+
 const routes = [
   {
     path: '/',
@@ -17,19 +20,24 @@ const routes = [
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
       },
       {
-        path:'/about',
+        path: '/about',
         name: 'about',
         component: About
       },
       {
-        path:'/table',
+        path: '/table',
         name: 'table',
         component: Table
       },
       {
-        path:'/form',
+        path: '/form',
         name: 'form',
         component: Form
+      },
+      {
+        path: '/assistant',
+        name: 'assistant',
+        component: Assistant
       }
     ],
   },

@@ -1,6 +1,6 @@
 <template>
-  <v-card width="1000px">
-    <v-table height="500px">
+  <v-card height="80vh" width="80%">
+    <v-table height="80vh">
       <thead>
         <tr>
           <th class="text-left">
@@ -32,13 +32,13 @@
   </v-card>
 </template>
 <script>
-import apiService from '../shared/apiService/apiService.js'
+import apiService from '@/shared/apiService/apiService';
 
 export default {
   name: 'DataTable',
   data() {
     return {
-      todoData:[]
+      todoData: []
     }
   },
   //生命週期hook會在component生命週期的各個不同階段被調用
@@ -46,10 +46,10 @@ export default {
     // 取得user todoList
     this.fetchTodoData();
   },
-  methods : {
+  methods: {
 
     // 取得user todoList
-    fetchTodoData(){
+    fetchTodoData() {
       apiService.get('/todos')
         .then(response => {
           this.todoData = response.data

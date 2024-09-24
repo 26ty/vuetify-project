@@ -11,6 +11,7 @@ import 'vuetify/styles'
 // Composables
 import { createVuetify } from 'vuetify'
 
+import 'material-design-icons-iconfont/dist/material-design-icons.css'; // 确保您正在使用 css-l
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   theme: {
