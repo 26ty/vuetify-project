@@ -17,7 +17,7 @@
   <!--側邊攔-->
   <v-navigation-drawer v-model="drawer" style="border: 0;width: 320px;" class="align-center bg-main"
     :style="{ transform: drawer ? 'translateX(28px)' : 'translateX(-320px)' }">
-    <v-card class="sidebar-card bg-white card">
+    <v-card class="sidebar-card bg-white card shadow-1">
       <!-- <v-list-item prepend-avatar="https://randomuser.me/api/portraits/men/78.jpg" title="John Leider"></v-list-item> -->
       <!-- <v-divider></v-divider> -->
       <v-list density="compact" nav>
@@ -31,7 +31,7 @@
   </v-navigation-drawer>
   <!--container-->
   <v-main :style="{ '--v-layout-left': drawer ? '350px' : ' 0px' }" class="bg-main">
-    <v-container fluid class="d-flex justify-center h-100 " style="margin-top: 50px;">
+    <v-container fluid class="d-flex justify-center h-100 " style="margin-top: 19px;">
       <router-view />
     </v-container>
     <!--<div class="d-flex justify-center h-100" style="margin-top: 100px;">

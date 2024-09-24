@@ -1,36 +1,45 @@
 <template>
-  <v-sheet width="600" class="mx-auto">
-    <v-container>
-      <v-form ref="form">
-        <v-row no-gutters>
-          <v-col>
-            <v-sheet class="pa-2">
-              <v-select v-model="userId" :items="userItem" :rules="[v => !!v || 'Item is required']" label="Item"
-                required></v-select>
-            </v-sheet>
-          </v-col>
-          <v-col>
-            <v-sheet class="pa-2">
-              <v-text-field v-model="title" :counter="10" label="Name" required></v-text-field>
-            </v-sheet>
-          </v-col>
-        </v-row>
-      </v-form>
-      <v-checkbox v-model="completed" label="Completed?" required></v-checkbox>
+  <v-container>
+    <v-row>
+      <v-col class="d-flex justify-center">
+        <v-card class="bg-white card shadow-1" width="100%">
+          <v-sheet width="600" class="mx-auto">
+            <v-container>
+              <v-form ref="form">
+                <v-row no-gutters>
+                  <v-col>
+                    <v-sheet class="pa-2">
+                      <v-select v-model="userId" :items="userItem" :rules="[v => !!v || 'Item is required']" label="Item"
+                        required></v-select>
+                    </v-sheet>
+                  </v-col>
+                  <v-col>
+                    <v-sheet class="pa-2">
+                      <v-text-field v-model="title" :counter="10" label="Name" required></v-text-field>
+                    </v-sheet>
+                  </v-col>
+                </v-row>
+              </v-form>
+              <v-checkbox v-model="completed" label="Completed?" required></v-checkbox>
 
-      <div class="d-flex flex-column">
-        <v-btn color="success" class="mt-4" block @click="submitForm">
-          Submit
-        </v-btn>
+              <div class="d-flex flex-column">
+                <v-btn color="success" class="mt-4" block @click="submitForm">
+                  Submit
+                </v-btn>
 
-        <v-btn color="error" class="mt-4" block @click="reset">
-          Reset Form
-        </v-btn>
+                <v-btn color="error" class="mt-4" block @click="reset">
+                  Reset Form
+                </v-btn>
 
-      </div>
-    </v-container>
+              </div>
+            </v-container>
 
-  </v-sheet>
+          </v-sheet>
+        </v-card>
+
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

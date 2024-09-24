@@ -1,35 +1,41 @@
 <template>
-  <v-card height="80vh" width="80%">
-    <v-table height="80vh">
-      <thead>
-        <tr>
-          <th class="text-left">
-            User
-          </th>
-          <th class="text-left">
-            Title
-          </th>
-          <th class="text-left">
-            Complelted
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in todoData" :key="item.userId">
-          <td>{{ item.userId }}</td>
-          <td>{{ item.title }}</td>
-          <td>
-            <v-chip v-if="item.completed == false" class="ma-2" color="red" text-color="white">
-              {{ item.completed }}
-            </v-chip>
-            <v-chip v-else class="ma-2" color="green" text-color="white">
-              {{ item.completed }}
-            </v-chip>
-          </td>
-        </tr>
-      </tbody>
-    </v-table>
-  </v-card>
+  <v-container>
+    <v-row>
+      <v-col class="d-flex justify-center">
+        <v-card class="bg-white card shadow-1" height="80vh" width="100%">
+          <v-table height="80vh">
+            <thead>
+              <tr>
+                <th class="text-left">
+                  User
+                </th>
+                <th class="text-left">
+                  Title
+                </th>
+                <th class="text-left">
+                  Complelted
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in todoData" :key="item.userId">
+                <td>{{ item.userId }}</td>
+                <td>{{ item.title }}</td>
+                <td>
+                  <v-chip v-if="item.completed == false" class="ma-2" color="red" text-color="white">
+                    {{ item.completed }}
+                  </v-chip>
+                  <v-chip v-else class="ma-2" color="green" text-color="white">
+                    {{ item.completed }}
+                  </v-chip>
+                </td>
+              </tr>
+            </tbody>
+          </v-table>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
 import apiService from '@/shared/apiService/apiService';
