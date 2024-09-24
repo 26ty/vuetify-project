@@ -57,5 +57,6 @@ pnpm lint
 See [Configuration Reference](https://vitejs.dev/config/).
 
 ### 保存原始框架
-![image](https://github.com/user-attachments/assets/4229eeed-eb81-4ee3-a175-bf8ea6ea947d)
+![image](https://github.com/user-attachments/assets/81aad31b-a05d-489b-9c65-4d0af6b3fdc9)
+
 
