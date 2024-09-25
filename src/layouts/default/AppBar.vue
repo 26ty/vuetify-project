@@ -1,12 +1,23 @@
 <!-- eslint-disable vue/valid-v-for -->
 <template>
-  <v-app-bar class="bg-white v-app-bar-shadow v-app-bar">
-    <v-app-bar-title>
-      <!--側邊欄控制按鈕-->
-      <v-app-bar-nav-icon color="primary" @click.stop="drawer = !drawer">
-      </v-app-bar-nav-icon>
-      Base Preset
+  <v-app-bar class="bg-white v-app-bar-shadow v-app-bar justify-center d-flex">
+    <v-app-bar-title class="">
+      <v-container fluid>
+        <v-row>
+          <v-col-2>
+            <!--側邊欄控制按鈕-->
+            <v-app-bar-nav-icon color="primary" @click.stop="drawer = !drawer">
+            </v-app-bar-nav-icon>
+          </v-col-2>
+          <v-col-2>
+            <!--logo-->
+            <img class="" src="@/assets/QF-logo.png" alt="Logo" style="height: 40px;" />
+          </v-col-2>
+        </v-row>
+      </v-container>
     </v-app-bar-title>
+
+
 
     <!-- <v-responsive max-width="260" class="mr-15">
       <v-text-field label="搜尋" solo-inverted dense flat hide-details rounded append-outer-icon="search">
